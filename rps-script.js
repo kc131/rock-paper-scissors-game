@@ -30,38 +30,35 @@ function playRound() {
 function decideRoundWinner() {
   if (playerChoice === "ROCK") {
     if (compChoice === "ROCK") {
-      console.log("The computer's choice was ROCK! You tie!");
-      compScore +=1;
-      playerScore +=1;
+      console.log("The computer's choice was ROCK! You tie! Do this round over.");
+      playRound();
     } else if (compChoice === "PAPER") {
-      console.log("The computer's choice was PAPER! You lose!");
+      console.log("The computer's choice was PAPER! You lose this round!");
       compScore +=1;
     } else if (compChoice === "SCISSORS") {
-      console.log("The computer's choice was SCISSORS! You win!");
+      console.log("The computer's choice was SCISSORS! You win this round!");
       playerScore +=1;
     }
   } else if (playerChoice === "PAPER") {
     if (compChoice === "PAPER") {
-      console.log("The computer's choice was PAPER! You tie!");
-      compScore +=1;
-      playerScore +=1;
+      console.log("The computer's choice was PAPER! You tie! Do this round over.");
+      playRound();
     } else if (compChoice === "SCISSORS") {
-      console.log("The computer's choice was SCISSORS! You lose!");
+      console.log("The computer's choice was SCISSORS! You lose this round!");
       compScore +=1;
     } else if (compChoice === "ROCK") {
-      console.log("The computer's choice was ROCK! You win!");
+      console.log("The computer's choice was ROCK! You win this round!");
       playerScore +=1;
     }
   } else if (playerChoice === "SCISSORS") {
     if (compChoice === "SCISSORS") {
-      console.log("The computer's choice was SCISSORS! You tie!");
-      compScore +=1;
-      playerScore +=1;
+      console.log("The computer's choice was SCISSORS! You tie! Do this round over.");
+      playRound();
     } else if (compChoice === "ROCK") {
-      console.log("The computer's choice was ROCK! You lose!");
+      console.log("The computer's choice was ROCK! You lose this round!");
       compScore +=1;
     } else if (compChoice === "PAPER") {
-      console.log("The computer's choice was PAPER! You win!");
+      console.log("The computer's choice was PAPER! You win this round!");
       playerScore +=1;
     }
   }
@@ -69,17 +66,22 @@ return(playerScore, compScore);
 
 }
 
-//playRound();
-//console.log(compChoice);
-//console.log(playerChoice);
-//console.log(playerScore);
-//console.log(compScore);
-
 function playRPS() {
-  for (let i = 0; i<5; i++) {
+  for (let i = 0; i<=4; i++) {
+    if (i < 4) {
     playRound();
     console.log(`The score is now ${playerScore} to ${compScore}.`)
+  } else {
+    playRound();
+    console.log(`The final score is ${playerScore} to ${compScore}.`);
+    if (playerScore > compScore) {
+      console.log("You won the game! Great job!")
+    } else {
+      console.log("You lost the game! Better luck next time!")
+    }
   }
 }
+}
+
 
 playRPS();
