@@ -81,6 +81,17 @@ function playRPS() {
     }
   }
 }
+let playAgain= prompt("Would you like to play again?");
+playAgain = playAgain.toUpperCase();
+console.log(playAgain);
+if (playAgain === 'YES') {
+  compScore = 0;
+  playerScore = 0;
+  playRPS();
+} else {
+  console.log("Ok!See you next time! Bye!");
+}
+
 }
 
 
